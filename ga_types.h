@@ -7,12 +7,12 @@ typedef unsigned char byte;
 
 typedef struct {
   byte *dna;
-} Animal;
+} Genome;
 
 typedef struct {
   int dnanum;
   int num; /* <=255 */
-  Animal a[255];
-} Agelh;
+  Genome a[255];
+} Population;
 
 #endif

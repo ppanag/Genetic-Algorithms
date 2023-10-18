@@ -5,12 +5,12 @@
 
 #include "ga_types.h"
 
-void ga_init(int dnan, int animaln);
+void ga_init(int dnan, int genomen);
 
-void ga_params(int ruletenum, int beststay, float mutdist, float mutp,
+void ga_params(int roulettenum, int beststay, float mutdist, float mutp,
                float base);
 
-void ga_exelixi(long gens);
+void ga_run(long gens);
 
 void ga_printbests(int m);
 

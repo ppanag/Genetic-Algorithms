@@ -1,20 +1,20 @@
 /* ga_crossover.c */
 
 #include "ga_crossover.h"
-#include "z_err.h"
 #include "ga_types.h"
 #include "rnd.h"
+#include "z_err.h"
 #include <assert.h>
 #include <stdlib.h>
 extern int rdebug;
 static int ready = 0;
 static int randnum = 0;
 
-/* max roulete space */
+/* max roulette space */
 #define MAXR 4000
-static byte rulete[MAXR]; /*an zwa>255 kanto int */
+static byte roulette[MAXR]; /*an zwa>255 kanto int */
 
-void crossover(Animal p1, Animal p2, Animal child, float mut, float mutp,
+void crossover(Genome p1, Genome p2, Genome child, float mut, float mutp,
                int dnanum) {
   float s, dnachild;
   int i;
@@ -29,40 +29,41 @@ void crossover(Animal p1, Animal p2, Animal child, float mut, float mutp,
   }
 }
 
-void buildrandpersonforcrossover(int skor[], int n, int ruletenum, float base) {
+void buildrandgenomeforcrossover(int score[], int n, int roulettenum,
+                                 float base) {
   int i, k, j, m, min, max, critical;
   long s, s2;
 
   if (rdebug > 1)
     for (i = 0; i < n; i++) {
-      check(skor[i] >= 0);
+      check(score[i] >= 0);
     }
 
-  check(ruletenum <= MAXR);
+  check(roulettenum <= MAXR);
   check(base > 0 && base < 1);
   min = 32700;
   max = -1;
   for (i = 0; i < n; i++) {
-    if (skor[i] < min)
-      min = skor[i];
-    else if (skor[i] > max)
-      max = skor[i];
+    if (score[i] < min)
+      min = score[i];
+    else if (score[i] > max)
+      max = score[i];
   }
   critical = min + base * (max - min);
   for (i = 0; i < n; i++)
-    if (skor[i] < critical)
-      skor[i] = 0;
+    if (score[i] < critical)
+      score[i] = 0;
 
   s = 0;
   for (i = 0; i < n; i++)
-    s += skor[i];
+    s += score[i];
   j = 0;
   s2 = s / 2;
   for (i = 0; i < n; i++) {
-    m = (int)((skor[i] * ruletenum + s2) / s);
+    m = (int)((score[i] * roulettenum + s2) / s);
     /* rounded??  */
     for (k = 0; k < m; k++) {
-      rulete[j] = i;
+      roulette[j] = i;
       j++;
     }
   }
@@ -71,27 +72,27 @@ void buildrandpersonforcrossover(int skor[], int n, int ruletenum, float base) {
   ready = 1;
   check(randnum <= MAXR);
   if (rdebug > 9) {
-    printf("rletnum=%d randnum=%d\n", ruletenum, randnum);
-    for (i = 0; i < ruletenum + 2; i++)
-      printf("%4d", rulete[i]);
+    printf("rletnum=%d randnum=%d\n", roulettenum, randnum);
+    for (i = 0; i < roulettenum + 2; i++)
+      printf("%4d", roulette[i]);
   }
 }
 
-int randpersonforcrossover() {
+int randgenomeforcrossover() {
   assert(ready);
-  return rulete[rand() % randnum];
+  return roulette[rand() % randnum];
 }
 
-void findbestanimals(int skor[], int n, int b, int best[]) {
+void findbestgenomes(int score[], int n, int b, int best[]) {
   register int j, k, i;
   int value[50];
   int v;
 
-  check(b <= 50);
+  check(b < 50);
   for (j = 0; j < b; j++)
     value[j] = -32767;
   for (i = 0; i < n; i++) {
-    v = skor[i];
+    v = score[i];
     for (j = b - 1; j >= 0; j--) {
       if (v <= value[j])
         break;

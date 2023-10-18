@@ -5,14 +5,14 @@
 
 #include "ga_types.h"
 
-void crossover(Animal p1, Animal p2, Animal child, float mut, float mutp,
+void crossover(Genome p1, Genome p2, Genome child, float mut, float mutp,
                int dnanum);
 /* 0<mutp<1  */
 
-void buildrandpersonforcrossover(int skor[], int n, int ruletenum, float base);
+void buildrandgenomeforcrossover(int score[], int n, int roulettenum, float base);
 
-int randpersonforcrossover();
+int randgenomeforcrossover();
 
-void findbestanimals(int skor[], int n, int b, int best[]);
+void findbestgenomes(int score[], int n, int b, int best[]);
 
 #endif

@@ -1,6 +1,6 @@
 /*
 
-   check macro. just copy of assert...
+   Check macro. Just copy of Assert...
 */
 
 #include <stdio.h>  /*  fprintf() prototype & 'stderr' definition */

@@ -5,12 +5,12 @@
 
 #include "ga_types.h"
 
-Animal newrandanimal(int dnanum);
+Genome newrandgenome(int dnanum);
 
-void printanimal(Animal a, int dnanum);
+void printgenome(Genome a, int dnanum);
 
 void printarray(int a[], int n);
 
-void copyanimal(Animal dst, Animal src, int n);
+void copygenome(Genome dst, Genome src, int n);
 
 #endif

@@ -1,21 +1,21 @@
-/* ga_skor.c  */
-#include "ga_skor.h"
-#include "z_err.h"
+/* ga_score.c  */
+#include "ga_score.h"
 #include "ga_fight.h"
 #include "ga_types.h"
+#include "z_err.h"
 #include <stdlib.h>
 
 extern int dnanum;
 
-void skoreval(Agelh *a, int skor[]) {
+void scoreeval(Population *a, int score[]) {
   int n, i;
   n = a->num;
   for (i = 0; i < n; i++) {
-    skor[i] = oneskor(a->a[i]);
+    score[i] = onescore(a->a[i]);
   }
 }
 
-int oneskorex(Animal a) {
+int onescorex(Genome a) {
   int i, n, s = 0;
   float x, y;
   n = dnanum;
@@ -27,36 +27,36 @@ int oneskorex(Animal a) {
   return s;
 }
 
-void adjustskor(int skor[], int goodskor[], int n) {
+void adjustscore(int score[], int goodscore[], int n) {
   int i, min = 32000, max = -32000;
   for (i = 0; i < n; i++) {
-    if (skor[i] < min)
-      min = skor[i];
-    if (skor[i] > max)
-      max = skor[i];
+    if (score[i] < min)
+      min = score[i];
+    if (score[i] > max)
+      max = score[i];
   }
   check(max < 16001);
   for (i = 0; i < n; i++)
-    goodskor[i] = skor[i] - min + 1;
+    goodscore[i] = score[i] - min + 1;
 }
 
 extern int CH;
-void skoreval2(Agelh *a, int skor[]) {
+void scoreeval2(Population *a, int score[]) {
   int i, j, k, sk;
   for (i = 0; i < a->num; i++)
-    skor[i] = 0;
+    score[i] = 0;
   for (i = 0; i < CH; i++)
     for (j = 0; j < a->num; j++)
       for (k = 0; k < a->num; k++) {
         sk = fight(a->a[j], a->a[k]);
-        skor[j] += sk;
-        skor[k] -= sk;
+        score[j] += sk;
+        score[k] -= sk;
       }
 }
 
 #define ppp(x, y) (0)
 #include "sail.h"
-int oneskor(Animal a) {
+int onescore(Genome a) {
   static float px[11000], py[11000];
   int i, n;
   float t;

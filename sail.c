@@ -1,8 +1,6 @@
-#include <math.h>
-
 #include "sail.h"
-
 #include "z_err.h"
+#include <math.h>
 
 float timeab(float xa, float ya, float xb, float yb) {
   float t, u, u0 = 1, cosw, upmin = .01;

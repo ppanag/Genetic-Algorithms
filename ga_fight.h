@@ -2,4 +2,4 @@
 
 #include "ga_types.h"
 
-int fight(Animal a, Animal b);
+int fight(Genome a, Genome b);

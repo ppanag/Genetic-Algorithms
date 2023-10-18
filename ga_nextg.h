@@ -5,7 +5,7 @@
 
 #include "ga_types.h"
 
-void nextgen(Agelh *old, Agelh *new, int ruletenum, int beststay, float mutdist,
-             float mutp, float base, int skor[]);
+void nextgen(Population *old, Population *new, int roulettenum, int beststay, float mutdist,
+             float mutp, float base, int score[]);
 
 #endif
