@@ -1,6 +1,7 @@
 
 #include "ga.h"
 #include "rnd.h"
+#include "zz_costfunction.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -15,7 +16,7 @@ int main(int n, char **arg) {
 
   ga_init(100, 50);
   ga_params(1000, 5, 2, .1, .01);
-  ga_run(g);
+  ga_run(g, costfunction1);
   ga_printbests(1);
   return 0;
 }

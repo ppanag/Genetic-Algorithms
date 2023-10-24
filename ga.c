@@ -52,7 +52,7 @@ void ga_params(int roulettenum, int beststay, float mutdist, float mutp,
   ready = 2;
 }
 
-void ga_run(long gens) {
+void ga_run(long gens, int (*costfunction)(Genome)) {
   long i;
   Population *tmp;
 
@@ -61,7 +61,8 @@ void ga_run(long gens) {
     tmp = old;
     old = new;
     new = tmp;
-    nextgen(old, new, Roulettenum, Beststay, Mutdist, Mutp, Base, score);
+    nextgen(old, new, costfunction, Roulettenum, Beststay, Mutdist, Mutp, Base,
+            score);
   }
 }
 

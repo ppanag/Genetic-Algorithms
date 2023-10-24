@@ -14,6 +14,7 @@ Genome newrandgenome(int dnanum) {
     error("cant malloc randgenome");
   for (i = 0; i < dnanum; i++)
     a.dna[i] = rand() % 256;
+  a.dnanum = dnanum;
   return a;
 }
 

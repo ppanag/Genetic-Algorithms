@@ -7,6 +7,7 @@ typedef unsigned char byte;
 
 typedef struct {
   byte *dna;
+  int dnanum;
 } Genome;
 
 typedef struct {

@@ -7,11 +7,11 @@
 
 extern int dnanum;
 
-void scoreeval(Population *a, int score[]) {
+void scoreeval(Population *a, int score[], int (*costfunction)(Genome)) {
   int n, i;
   n = a->num;
   for (i = 0; i < n; i++) {
-    score[i] = onescore(a->a[i]);
+    score[i] = onescore(a->a[i], costfunction);
   }
 }
 
@@ -54,25 +54,4 @@ void scoreeval2(Population *a, int score[]) {
       }
 }
 
-#define ppp(x, y) (0)
-#include "sail.h"
-int onescore(Genome a) {
-  static float px[11000], py[11000];
-  int i, n;
-  float t;
-  n = dnanum / 2 + 2;
-  check(n < 11000);
-  px[0] = 250.0;
-  py[0] = 0.0;
-  px[n - 1] = 5.0;
-  py[n - 1] = 0.0;
-  for (i = 1; i < n - 1; i++) {
-    px[i] = (float)(a.dna[i - 1]);
-    ppp("%f ", px[i]);
-    py[i] = (float)(a.dna[n - 3 + i]);
-  }
-  t = sailtime(px, py, n);
-  if (t > 2.1E9)
-    t = 2.1E9;
-  return -(int)t;
-}
+int onescore(Genome a, int (*costfunction)(Genome)) { return costfunction(a); }

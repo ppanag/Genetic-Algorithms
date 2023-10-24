@@ -6,8 +6,9 @@
 #include "ga_score.h"
 #include <assert.h>
 
-void nextgen(Population *old, Population *new, int roulettenum, int beststay,
-             float mutdist, float mutp, float base, int score[]) {
+void nextgen(Population *old, Population *new, int (*costfunction)(Genome),
+             int roulettenum, int beststay, float mutdist, float mutp,
+             float base, int score[]) {
   static int goodscore[255];
   static int best[50];
   int i, j, n;
@@ -16,7 +17,7 @@ void nextgen(Population *old, Population *new, int roulettenum, int beststay,
   assert(beststay <= 50);
 
   n = old->num;
-  scoreeval(old, score);
+  scoreeval(old, score, costfunction);
   adjustscore(score, goodscore, n);
   findbestgenomes(goodscore, n, beststay, best);
   buildrandgenomeforcrossover(goodscore, n, roulettenum, base);
