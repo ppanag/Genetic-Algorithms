@@ -2,7 +2,7 @@
 
 Compile with:
 ```
-    gcc -o executable \*.c -lm
+    gcc -o executable *.c -lm
 ```
 
 Run (1000 generations):
@@ -11,8 +11,8 @@ Run (1000 generations):
     ./executable 1000
 ```
 
-Define your own function to be otpimized:
+Define your own function to be optimized:  
     Change the files sail.h and sail.c
 
-Future work:
+Future work:  
     Parallel processing with distributed populations.
