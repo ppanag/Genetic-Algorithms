@@ -8,7 +8,7 @@ Run (1000 generations):
     ./executable 1000
 
 Define your own function to be otpimized:
-    Change the files sail.h and sail.c
+-   Change the files sail.h and sail.c
 
 Future work:
 
