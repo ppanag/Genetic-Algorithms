@@ -1,4 +1,4 @@
-# Genetic algorithm library to solve non-linear optimization problems.
+## Genetic algorithm library to solve non-linear optimization problems.
 
 Compile with:
 ```
