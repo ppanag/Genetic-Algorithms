@@ -1,4 +1,4 @@
-## Fast genetic algorithm library to solve non-linear optimization problems.
+## Fast genetic algorithm library in C, to solve non-linear optimization problems.
 
 Compile with:
 ```
