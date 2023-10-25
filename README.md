@@ -12,7 +12,7 @@ Run (1000 generations):
 ```
 
 Define your own function to be optimized:  
-    Change the files sail.h and sail.c
+    Change the files zz_costfunction.h and zz_costfunction.c
 
 Future work:  
     Parallel processing with distributed populations.
