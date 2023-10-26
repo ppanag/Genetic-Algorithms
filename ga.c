@@ -34,8 +34,7 @@ void ga_init(int dnan, int genomen) {
 }
 
 
-void ga_params(int roulettenum, int beststay, float mutdist, float mutp,
-               float base) {
+void ga_params(int roulettenum, int beststay, float mutdist, float mutp, float base) {
   check(ready);
   check(roulettenum < 3000);
   check(beststay < 50);
@@ -59,8 +58,7 @@ void ga_run(long gens, int (*costfunction)(Genome)) {
     tmp = old;
     old = new;
     new = tmp;
-    nextgen(old, new, costfunction, Roulettenum, Beststay, Mutdist, Mutp, Base,
-            score);
+    nextgen(old, new, costfunction, Roulettenum, Beststay, Mutdist, Mutp, Base, score);
   }
 }
 
