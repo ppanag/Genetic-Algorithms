@@ -17,6 +17,6 @@ Define your own function to be optimized:
 Future work:  
     Parallel processing with distributed populations.
 
-Contact me: panay@gmx.com
+Contact me: panay@gmx.com  
 Ethereum donate: 0x3C25d4D0DC562Eb6514Cd56184435CF41BAd51d9
    
