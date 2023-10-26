@@ -19,4 +19,4 @@ Future work:
 
 ---
 ###### Email: panay@gmx.com    
-######
+###### Ethereum: 0x3C25d4D0DC562Eb6514Cd56184435CF41BAd51d9    
