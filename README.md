@@ -17,6 +17,7 @@ Define your own function to be optimized:
 Future work:  
     Parallel processing with distributed populations.
 
+<font size="3">
 Email: panay@gmx.com  
 Ethereum: 0x3C25d4D0DC562Eb6514Cd56184435CF41BAd51d9
-   
+</font>   
