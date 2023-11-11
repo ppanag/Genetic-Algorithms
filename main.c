@@ -17,13 +17,13 @@ int main(int n, char **arg) {
   if (n > 1)
     g = atol(arg[1]);
   rndseed();
-  printf(">>> g=%ld  ", g);
 
   ga_init(100, 50);
   ga_params(1000, 5, 2, .1, .01);
   ga_run(g, costfunction1);
-  ga_printbests(1);
   a = bestgenomesofar();
   terminal_draw(a);
+  printf(">>> g=%ld  ", g);
+  ga_printbests(1);
   return 0;
 }
