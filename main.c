@@ -5,10 +5,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+
+// debug level
 int rdebug = 5;
 
 int main(int n, char **arg) {
   long g = 1;
+  // get number of generations from command
   if (n > 1)
     g = atol(arg[1]);
   rndseed();

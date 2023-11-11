@@ -5,7 +5,7 @@
 
 #include "ga_types.h"
 
-void ga_init(int dnan, int genomen);
+void ga_init(int dna_n, int population_n);
 
 void ga_params(int roulettenum, int beststay, float mutdist, float mutp,
                float base);
