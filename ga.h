@@ -14,4 +14,6 @@ void ga_run(long gens, int (*costfunction)(Genome));
 
 void ga_printbests(int m);
 
+Genome bestgenomesofar();
+
 #endif

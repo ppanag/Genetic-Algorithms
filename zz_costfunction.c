@@ -1,6 +1,7 @@
 /* Testing the GA by finding the optimum route of a sailboat
 trying to sail against the wind between 2 points.
-The model is non-linear.  */
+The model is non-linear.
+Use this as a template for other functions/models  */
 
 #include "zz_costfunction.h"
 #include "ga_types.h"
@@ -48,5 +49,5 @@ int costfunction1(Genome a) {
   t = sailtime(px, py, n);
   if (t > 2.1E9)
     t = 2.1E9;
-  return -(int)t;
+  return -(int)t; // negative to find minimum not maximum..
 }

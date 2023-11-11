@@ -65,8 +65,13 @@ void ga_printbests(int m) {
   int i;
   findbestgenomes(score, old->num, m, best);
   for (i = 0; i < m; i++) {
-    printf("[s:%5d <", score[best[i]]);
-    printgenome(old->a[best[i]], old->dnanum);
-    printf("] ");
+    printf("score:%5d ", score[best[i]]);
+    // printgenome(old->a[best[i]], old->dnanum);
+    // printf("] ");
   }
+}
+
+Genome bestgenomesofar() {
+  findbestgenomes(score, old->num, 1, best);
+  return (old->a[best[0]]);
 }
