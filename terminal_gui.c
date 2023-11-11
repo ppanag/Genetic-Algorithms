@@ -20,7 +20,7 @@ void drawPoints(byte px[], byte py[], int n) {
     // Draw point
     printf("\033[%d;%dH*", y + 1, x + 1);
   }
-  printf("\033[%d;%dH------------\n", HEIGHT + 1, 0);
+  printf("\033[%d;%dH ", HEIGHT + 1, 0);
 }
 
 void terminal_draw(Genome a) {
